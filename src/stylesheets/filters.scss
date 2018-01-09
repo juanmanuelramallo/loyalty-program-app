@@ -1,0 +1,48 @@
+@import "colors";
+@import "flex";
+
+.filters {
+  @include flex(row, space-between);
+  margin-top: 65px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid $gray-divider;
+
+  &-products {
+    font-size: 24px;
+    color: $gray-darken;
+    letter-spacing: -0.15px;
+    line-height: 48px;
+    text-align: left;
+  }
+
+  .filter-buttons {
+    display: inline-block;
+
+    &-divider {
+      position: absolute;
+      background: $gray-divider;
+      width: 1px;
+      height: 50px;
+      margin-left: 24px;
+    }
+
+    &-sort-by {
+      margin-left: 48px;
+      font-size: 24px;
+      color: $gray;
+      letter-spacing: -0.15px;
+      line-height: 48px;
+      text-align: left;
+    }
+
+    button {
+      margin-left: 24px;
+    }
+  }
+
+  .pagination-buttons {
+    button:last-child {
+      margin-left: 12px;
+    }
+  }
+}

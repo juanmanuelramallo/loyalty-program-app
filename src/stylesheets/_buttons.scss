@@ -1,0 +1,39 @@
+@import "colors";
+
+.btn {
+  font-size: 24px;
+  letter-spacing: -0.15px;
+  line-height: 48px;
+  text-align: left;
+  border-radius: 100px;
+  padding: 0 24px;
+  background: $gray-light;
+  color: $gray;
+  border: none;
+  font-weight: normal;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    box-shadow: 1px 1px 5px $gray;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.active {
+    background: $primary-color;
+    color: #ffffff;
+  }
+}
+
+button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}

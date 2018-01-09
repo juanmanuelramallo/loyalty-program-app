@@ -29,7 +29,14 @@
       width: 103px;
       height: 48px;
       padding: 0 13px;
-      margin-left: 18px; }
+      margin-left: 18px;
+      transition: 0.3s ease; }
+      .header-info-user-points:hover {
+        box-shadow: 1px 1px 5px #a3a3a3; }
+        .header-info-user-points:hover img {
+          transform: rotateY(180deg); }
+      .header-info-user-points img {
+        transition: 0.3s ease; }
 
 .header-banner {
   position: relative;
@@ -40,7 +47,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("../images/header-x1.png"); }
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     .header-banner {
       background-image: url("../images/header-x2.png"); } }
   .header-banner-title {

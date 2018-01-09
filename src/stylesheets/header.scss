@@ -36,6 +36,19 @@
         height: 48px;
         padding: 0 13px;
         margin-left: 18px;
+        transition: 0.3s ease;
+
+        &:hover {
+          box-shadow: 1px 1px 5px $gray;
+
+          img {
+            transform: rotateY(180deg);
+          }
+        }
+
+        img {
+          transition: 0.3s ease;
+        }
       }
 
     }
@@ -52,7 +65,7 @@
     background-size: cover;
     background-image: url('../images/header-x1.png');
 
-    @media (min-width: $breakpoint-tablet) {
+    @media screen and (min-width: $breakpoint-tablet) {
       background-image: url('../images/header-x2.png');
     }
 

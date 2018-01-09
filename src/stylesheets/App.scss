@@ -1,4 +1,17 @@
 @import "types";
+@import "buttons";
+@import "breakpoints";
+
+.container {
+  max-width: 1176px;
+  margin: auto;
+  padding-bottom: 74px;
+
+
+  @media screen and (max-width: $breakpoint-tablet) {
+    margin: 0 10px;
+  }
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
