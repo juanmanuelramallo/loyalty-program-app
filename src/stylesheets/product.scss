@@ -1,0 +1,30 @@
+@import "colors";
+
+.product {
+  position: relative;
+  height: 276px;
+  width: 276px;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+  &-photo {
+    width: 252px;
+    height: 182px;
+    padding: 10px;
+  }
+
+  &-buy {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+
+  &-info {
+    margin: 0 24px;
+    border-top: 1px solid $gray-divider;
+  }
+
+  &-hover {
+    display: none;
+  }
+}

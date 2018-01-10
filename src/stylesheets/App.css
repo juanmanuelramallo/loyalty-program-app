@@ -24,6 +24,9 @@ body {
   .btn.active {
     background: #0ad4fa;
     color: #ffffff; }
+  .btn-white {
+    background-color: #ffffff;
+    color: #616161; }
 
 button {
   border: none;

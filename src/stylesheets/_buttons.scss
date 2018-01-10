@@ -26,6 +26,11 @@
     background: $primary-color;
     color: #ffffff;
   }
+
+  &-white {
+    background-color: #ffffff;
+    color: $gray-darken;
+  }
 }
 
 button {

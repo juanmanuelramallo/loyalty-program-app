@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // Components
 import Header from './components/Header';
 import Filters from './components/Filters';
+import Products from './components/Products';
 
 // Styles
 import './stylesheets/App.css';
@@ -84,6 +85,26 @@ class App extends Component {
   }
 
 
+  renderProducts() {
+    const { page, products, productsPerPage, appliedFilter, productsLoading, user } = this.state;
+    if (products && user) {
+      const availablePoints = user.points;
+      return(
+        <Products
+          products={ products }
+          page={ page }
+          productsPerPage={ productsPerPage }
+          appliedFilter={ appliedFilter }
+          availablePoints={ availablePoints }/>
+      );
+    } else if (productsLoading) {
+      return(<div className="loading"></div>);
+    } else {
+      return null;
+    }
+  }
+
+
   render() {
     const { title, user } = this.state;
     return (
@@ -93,7 +114,7 @@ class App extends Component {
           user={ user }/>
         <div className="container">
           { this.renderFiltersBar(true) }
-          <p>content</p>
+          { this.renderProducts() }
           { this.renderFiltersBar(false) }
         </div>
       </div>
