@@ -7,24 +7,86 @@ import coin from '../images/coin.svg';
 
 import '../stylesheets/product.css';
 
+import { redeem } from '../api/products';
+
 export default class Product extends Component {
-  render() {
+  constructor() {
+    super();
+    this.state = {
+      isLoading: false
+    }
+  }
+
+
+  handleRedeemButton() {
     const { product, availablePoints } = this.props;
+    if (availablePoints >= product.cost) {
+      this.setState({ isLoading: true });
+      redeem(product)
+        .then(response => {
+          this.props.updatePoints();
+          this.props.notify({ text: response.data.message, type: 'success' });
+          this.setState({ isLoading: false });
+        })
+        .catch(error => {
+          this.props.notify({ text: error, type: 'error' });
+          this.setState({ isLoading: false });
+        })
+    }
+  }
+
+
+  renderBuyButton(color) {
+    const { availablePoints, product } = this.props;
+    const pointsNeeded = product.cost - availablePoints;
+    if (pointsNeeded > 0) {
+      return(
+        <div className="product-points-needed">You need { pointsNeeded } <img src={ coin } alt="Coin"/></div>
+      );
+    } else {
+      let buyIcon = buyBlue;
+      if (color === 'white') {
+        buyIcon = buyWhite;
+      }
+      return(
+        <div className="product-buy"><button className='btn-icon'><img src={ buyIcon } alt="Buy"/></button></div>
+      );
+    }
+  }
+
+
+  renderProductOverlay() {
+    const { availablePoints, product } = this.props;
+    if (availablePoints >= product.cost) {
+      const { isLoading } = this.state;
+      const redeemButtonText = `${ isLoading ? 'Redeeming...' : 'Redeem now' }`;
+      return(
+        <div className="product-overlay">
+          <div className="product-overlay-background"></div>
+          { this.renderBuyButton('white') }
+          <div className="product-overlay-info">
+            <p className="product-overlay-info-points">{ product.cost } <img src={ coin } alt="Coin"/></p>
+            <button type='button' className='btn btn-white' onClick={ () => this.handleRedeemButton() }>{ redeemButtonText }</button>
+          </div>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
+
+  render() {
+    const { product } = this.props;
     return(
       <div className="product">
-        <div className="product-buy"><button><img src={ buyBlue } alt="Buy"/></button></div>
+        { this.renderBuyButton() }
         <div className="product-photo"><img src={ product.img.url } alt={ `${product.category}` } /></div>
         <div className="product-info">
           <p className="product-info-category">{ product.category }</p>
           <p className="product-info-name">{ product.name }</p>
         </div>
-        <div className="product-hover">
-          <div className="product-buy"><button><img src={ buyWhite } alt="Buy"/></button></div>
-          <div className="product-hover-info">
-            <p className="product-hover-info-points">{ product.cost } <img src={ coin } alt="Coin"/></p>
-            <button type='button' className={ `btn btn-white ${ availablePoints > product.cost ? '' : 'disabled'}` }>Redeem now</button>
-          </div>
-        </div>
+        { this.renderProductOverlay() }
       </div>
     );
   }

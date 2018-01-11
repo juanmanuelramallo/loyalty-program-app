@@ -18,7 +18,7 @@ body {
   cursor: pointer;
   transition: 0.3s ease; }
   .btn:hover {
-    box-shadow: 1px 1px 5px #a3a3a3; }
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1); }
   .btn:focus {
     outline: none; }
   .btn.active {
@@ -34,6 +34,12 @@ button {
   cursor: pointer; }
   button:focus {
     outline: none; }
+
+.btn-icon {
+  background: transparent; }
+
+body {
+  background-color: #f9f9f9; }
 
 .container {
   max-width: 1176px;

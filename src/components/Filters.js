@@ -30,9 +30,9 @@ export default class Filters extends Component {
     return(
       <div className="pagination-buttons">
         { canGoLeft &&
-            <button onClick={ () => this.handlePage('left') }><img src={ arrowLeft } alt="Left"/></button> }
+            <button onClick={ () => this.handlePage('left') } className='btn-icon'><img src={ arrowLeft } alt="Left"/></button> }
         { canGoRight &&
-          <button onClick={ () => this.handlePage('right') }><img src={ arrowRight } alt="Right"/></button> }
+          <button onClick={ () => this.handlePage('right') } className='btn-icon'><img src={ arrowRight } alt="Right"/></button> }
       </div>
     );
   }

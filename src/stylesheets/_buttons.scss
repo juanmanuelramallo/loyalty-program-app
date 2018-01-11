@@ -15,7 +15,7 @@
   transition: 0.3s ease;
 
   &:hover {
-    box-shadow: 1px 1px 5px $gray;
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
   }
 
   &:focus {
@@ -41,4 +41,8 @@ button {
   &:focus {
     outline: none;
   }
+}
+
+.btn-icon {
+  background: transparent;
 }

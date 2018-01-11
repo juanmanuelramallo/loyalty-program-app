@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Filters from './components/Filters';
 import Products from './components/Products';
+import Notify from './components/Notify';
 
 // Styles
 import './stylesheets/App.css';
@@ -95,7 +96,9 @@ class App extends Component {
           page={ page }
           productsPerPage={ productsPerPage }
           appliedFilter={ appliedFilter }
-          availablePoints={ availablePoints }/>
+          availablePoints={ availablePoints }
+          notify={ (m) => this.refs.notify.notify(m) }
+          updatePoints={ () => this.fetchUser() }/>
       );
     } else if (productsLoading) {
       return(<div className="loading"></div>);
@@ -117,6 +120,7 @@ class App extends Component {
           { this.renderProducts() }
           { this.renderFiltersBar(false) }
         </div>
+        <Notify ref='notify'/>
       </div>
     );
   }

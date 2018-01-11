@@ -1,12 +1,17 @@
 @import "types";
 @import "buttons";
 @import "breakpoints";
+@import "colors";
+@import "variables";
+
+body {
+  background-color: $gray-background;
+}
 
 .container {
-  max-width: 1176px;
+  max-width: $container-size;
   margin: auto;
   padding-bottom: 74px;
-
 
   @media screen and (max-width: $breakpoint-tablet) {
     margin: 0 10px;
