@@ -66,7 +66,26 @@ class App extends Component {
 
 
   handleFilter(filter) {
-    this.setState({ appliedFilter: filter });
+    let { products } = this.state;
+    switch (filter) {
+      case 'mostRecent':
+        // There is no 'created at' information about a product
+        break;
+      case 'lowestPrice':
+        products = products.sort((productA, productB) => productA.cost - productB.cost);
+        break;
+      case 'highestPrice':
+        products = products.sort((productA, productB) => productB.cost - productA.cost);
+        break;
+      default:
+        break;
+    }
+
+    this.setState({
+      products,
+      appliedFilter: filter,
+      page: 1
+    });
   }
 
 
