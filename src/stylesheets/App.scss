@@ -18,12 +18,25 @@ body {
   }
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.loading {
+  position: relative;
+  background: url('../images/aerolab-logo.svg') no-repeat center center;
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+  margin: 50px 0 25px 0;
+  opacity: 0.2;
+  animation: slide infinite 5s ease;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes slide {
+  0% { left: 25%; transform: rotate(0deg);}
+  50% { left: 75%; transform: rotate(10deg); }
+  100% { left: 25%; transform: rotate(0deg); }
+}
+
+p,
+h1,
+div {
+  cursor: default;
 }

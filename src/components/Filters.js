@@ -53,19 +53,14 @@ export default class Filters extends Component {
 
   renderFilterButtons() {
     const { withFilters, totalProducts } = this.props;
-    if (withFilters) {
+    if (withFilters && totalProducts > 0) {
       return(
         <div className="filter-buttons">
           <span className="filter-buttons-divider"></span>
-          {
-            totalProducts > 0 &&
-            <React.Fragment>
-              <span className="filter-buttons-sort-by">Sort by:</span>
-              { this.renderFilter('mostRecent', 'Most recent') }
-              { this.renderFilter('lowestPrice', 'Lowest price') }
-              { this.renderFilter('highestPrice', 'Highest price') }
-            </React.Fragment>
-          }
+          <span className="filter-buttons-sort-by">Sort by:</span>
+          { this.renderFilter('mostRecent', 'Most recent') }
+          { this.renderFilter('lowestPrice', 'Lowest price') }
+          { this.renderFilter('highestPrice', 'Highest price') }
         </div>
       );
     } else {

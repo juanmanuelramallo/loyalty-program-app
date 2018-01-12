@@ -41,6 +41,7 @@ export default class Products extends Component {
         availablePoints={ availablePoints }
         notify={ (m) => this.props.notify(m) }
         updateUserPoints={ (p) => this.props.updateUserPoints(p) }
+        updateHistory={ (p) => this.props.updateHistory(p) }
         key={ `product-${product._id}` }/>
     );
   }
@@ -61,6 +62,7 @@ Products.propTypes = {
   productsPerPage: PropTypes.number.isRequired,
   availablePoints: PropTypes.number.isRequired,
   updateUserPoints: PropTypes.func.isRequired,
+  updateHistory: PropTypes.func.isRequired,
   products: PropTypes.array,
   notify: PropTypes.func
 }

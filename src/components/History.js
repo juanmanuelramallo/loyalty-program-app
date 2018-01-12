@@ -45,6 +45,15 @@ export default class History extends Component {
   }
 
 
+  addProductToHistory(product) {
+    let { products } = this.state;
+    products.splice(0, 0, product);
+    this.setState({
+      products
+    });
+  }
+
+
   handleClickOutside(e) {
     const className = e.target.className;
     if ((className.indexOf('history') === -1) && (className.indexOf('header-info-user-points') === -1)) {
@@ -54,15 +63,21 @@ export default class History extends Component {
 
 
   show() {
-    this.setState({ show: true });
-    document.body.addEventListener('click', this.handleClickOutside);
+    const { show } = this.state;
+    if (!show) {
+      this.setState({ show: true });
+      document.body.addEventListener('click', this.handleClickOutside);
+    }
   }
 
 
   hide() {
-    this.setState({ show: false });
-    setTimeout(() => this.el.className = 'history', 300);
-    document.body.removeEventListener('click', this.handleClickOutside);
+    const { show } = this.state;
+    if (show) {
+      this.setState({ show: false });
+      setTimeout(() => this.el.className = 'history', 250);
+      document.body.removeEventListener('click', this.handleClickOutside);
+    }
   }
 
 

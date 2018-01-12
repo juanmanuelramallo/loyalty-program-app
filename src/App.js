@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Filters from './components/Filters';
 import Products from './components/Products';
 import Notify from './components/Notify';
+import History from './components/History';
 
 // Styles
 import './stylesheets/App.css';
@@ -60,20 +61,20 @@ class App extends Component {
   }
 
 
-  // To use with the react dev tools and dev console
-  handleAddPoints() {
-    addPoints()
-      .then(response => console.log(response.data))
-      .catch(error => console.log(error))
-  }
-
-
   updateUserPoints(pointsSpent) {
     let { user } = this.state;
     user.points = user.points - pointsSpent;
     this.setState({
       user
     });
+  }
+
+
+  // To use with the react dev tools and dev console
+  handleAddPoints() {
+    addPoints()
+      .then(response => console.log(response.data))
+      .catch(error => console.log(error))
   }
 
 
@@ -106,6 +107,11 @@ class App extends Component {
   }
 
 
+  showHistory() {
+    this.refs.history.show();
+  }
+
+
   renderFiltersBar(withFilters) {
     const { page, totalProducts, productsPerPage, appliedFilter, productsLoading } = this.state;
     return(
@@ -117,7 +123,7 @@ class App extends Component {
         withFilters={ withFilters }
         isLoading={ productsLoading }
         handlePage={ (page) => this.handlePage(page) }
-        handleFilter={ (filter) => this.handleFilter(filter) }/>
+        handleFilter={ (filter) => this.handleFilter(filter) } />
     );
   }
 
@@ -134,7 +140,8 @@ class App extends Component {
           appliedFilter={ appliedFilter }
           availablePoints={ availablePoints }
           notify={ (m) => this.refs.notify.notify(m) }
-          updateUserPoints={ (p) => this.updateUserPoints(p) }/>
+          updateUserPoints={ (p) => this.updateUserPoints(p) }
+          updateHistory={ (p) => this.refs.history.addProductToHistory(p) }/>
       );
     } else if (productsLoading) {
       return(<div className="loading"></div>);
@@ -150,7 +157,9 @@ class App extends Component {
       <div className="App">
         <Header
           title={ title }
-          user={ user }/>
+          user={ user }
+          showHistory={ () => this.showHistory() } />
+        <History ref='history'/>
         <main className="container">
           { this.renderFiltersBar(true) }
           { this.renderProducts() }

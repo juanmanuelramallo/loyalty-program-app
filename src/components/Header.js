@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import History from './History';
-
 import '../stylesheets/header.css';
 
 import logo from '../images/aerolab-logo.svg';
@@ -10,7 +8,7 @@ import coin from '../images/coin.svg';
 
 export default class Header extends Component {
   handleOpenHistory() {
-    this.refs.history.show();
+    this.props.showHistory();
   }
 
 
@@ -41,7 +39,6 @@ export default class Header extends Component {
         <div className='header-info'>
           <img src={ logo } alt='Kite' className='header-info-logo'/>
           { this.renderUserInfo() }
-          <History ref='history'/>
         </div>
         <div className='header-banner'>
           <div className="container">
