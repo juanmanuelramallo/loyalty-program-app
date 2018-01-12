@@ -13,7 +13,8 @@ export default class Product extends Component {
   constructor() {
     super();
     this.state = {
-      isLoading: false
+      isLoading: false,
+      loadingImage: true
     }
   }
 
@@ -36,7 +37,12 @@ export default class Product extends Component {
   }
 
 
-  renderBuyButton(color) {
+  handleLoadedImage() {
+    this.setState({ loadingImage: false });
+  }
+
+
+  renderShopIcon(color) {
     const { availablePoints, product } = this.props;
     const pointsNeeded = product.cost - availablePoints;
     if (pointsNeeded > 0) {
@@ -49,7 +55,7 @@ export default class Product extends Component {
         buyIcon = buyWhite;
       }
       return(
-        <div className="product-buy"><button className='btn-icon'><img src={ buyIcon } alt="Buy"/></button></div>
+        <div className="product-buy"><img src={ buyIcon } alt="Shop"/></div>
       );
     }
   }
@@ -63,7 +69,7 @@ export default class Product extends Component {
       return(
         <div className="product-overlay">
           <div className="product-overlay-background"></div>
-          { this.renderBuyButton('white') }
+          { this.renderShopIcon('white') }
           <div className="product-overlay-info">
             <p className="product-overlay-info-points">{ product.cost } <img src={ coin } alt="Coin"/></p>
             <button type='button' className='btn btn-white' onClick={ () => this.handleRedeemButton() }>{ redeemButtonText }</button>
@@ -78,10 +84,11 @@ export default class Product extends Component {
 
   render() {
     const { product } = this.props;
+    const { loadingImage } = this.state;
     return(
       <div className="product">
-        { this.renderBuyButton() }
-        <div className="product-photo"><img src={ product.img.url } alt={ `${product.category}` } /></div>
+        { this.renderShopIcon() }
+        <div className={ `product-photo ${ loadingImage ? 'product-photo--loading' : '' }` }><img src={ product.img.url } onLoad={ () => this.handleLoadedImage() } alt={ `${product.category}` } /></div>
         <div className="product-info">
           <p className="product-info-category">{ product.category }</p>
           <p className="product-info-name">{ product.name }</p>
