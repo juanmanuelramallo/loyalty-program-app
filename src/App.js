@@ -20,7 +20,7 @@ class App extends Component {
     this.state = {
       title: 'Electronics'
     }
-    sessionStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YTUzOTIyZGM5NzYyYTAwNTc2Mzg5MzYiLCJpYXQiOjE1MTU0MjYzNDl9.a_fFPJXHXg6Nz9SqCAiTXxt6qYBkKeOdphuR_PJcQbQ')
+    sessionStorage.setItem('token', process.env.REACT_APP_API_KEY);
   }
 
 

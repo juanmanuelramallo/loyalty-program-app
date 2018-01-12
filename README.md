@@ -9,8 +9,9 @@ Code challenge from Aerolab
 ## To run locally
 * Run `yarn install`
 * And then `yarn start`
-* Be sure to have your .env file loaded properly
-  * It only needs to have the key `REACT_APP_API_URL` set to the proper api url
+* For simplicity the .env file has been already loaded
+  * It needs to have the key `REACT_APP_API_URL` set to the proper api url
+  * And also the `REACT_APP_API_KEY` with the proper api key
 
 ----
 
