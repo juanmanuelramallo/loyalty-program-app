@@ -10,7 +10,7 @@ import Notify from './components/Notify';
 import './stylesheets/App.css';
 
 // API services
-import { getUser } from './api/user';
+import { getUser, addPoints } from './api/user';
 import { getProducts } from './api/products';
 
 class App extends Component {
@@ -60,9 +60,25 @@ class App extends Component {
   }
 
 
+  // To use with the react dev tools and dev console
+  handleAddPoints() {
+    addPoints()
+      .then(response => console.log(response.data))
+      .catch(error => console.log(error))
+  }
+
+
+  updateUserPoints(pointsSpent) {
+    let { user } = this.state;
+    user.points = user.points - pointsSpent;
+    this.setState({
+      user
+    });
+  }
+
+
   handlePage(page) {
     this.setState({ page });
-    // window.scrollTo(0, document.querySelector('main.container').offsetTop);
   }
 
 
@@ -118,7 +134,7 @@ class App extends Component {
           appliedFilter={ appliedFilter }
           availablePoints={ availablePoints }
           notify={ (m) => this.refs.notify.notify(m) }
-          updatePoints={ () => this.fetchUser() }/>
+          updateUserPoints={ (p) => this.updateUserPoints(p) }/>
       );
     } else if (productsLoading) {
       return(<div className="loading"></div>);

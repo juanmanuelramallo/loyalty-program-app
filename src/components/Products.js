@@ -40,7 +40,7 @@ export default class Products extends Component {
         product={ product }
         availablePoints={ availablePoints }
         notify={ (m) => this.props.notify(m) }
-        updatePoints={ () => this.props.updatePoints() }
+        updateUserPoints={ (p) => this.props.updateUserPoints(p) }
         key={ `product-${product._id}` }/>
     );
   }
@@ -59,8 +59,9 @@ export default class Products extends Component {
 Products.propTypes = {
   page: PropTypes.number.isRequired,
   productsPerPage: PropTypes.number.isRequired,
-  products: PropTypes.array,
   availablePoints: PropTypes.number.isRequired,
+  updateUserPoints: PropTypes.func.isRequired,
+  products: PropTypes.array,
   notify: PropTypes.func
 }
 

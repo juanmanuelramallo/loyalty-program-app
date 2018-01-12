@@ -25,7 +25,7 @@ export default class Product extends Component {
       this.setState({ isLoading: true });
       redeem(product)
         .then(response => {
-          this.props.updatePoints();
+          this.props.updateUserPoints(product.cost);
           this.props.notify({ text: response.data.message, type: 'success' });
           this.setState({ isLoading: false });
         })
@@ -101,5 +101,6 @@ export default class Product extends Component {
 
 Product.propTypes = {
   product: PropTypes.object.isRequired,
-  availablePoints: PropTypes.number.isRequired
+  availablePoints: PropTypes.number.isRequired,
+  updateUserPoints: PropTypes.func.isRequired
 }
