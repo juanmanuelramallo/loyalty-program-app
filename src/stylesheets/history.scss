@@ -1,0 +1,116 @@
+@import "flex";
+@import "colors";
+@import "variables";
+
+$top: $header-info-padding-top-bottom * 2 + $header-info-height - 5px;
+
+.history {
+  position: absolute;
+  top: $top;
+  right: 40px;
+  z-index: 10;
+  background-color: $gray-light;
+  width: 350px;
+  overflow: scroll;
+  border-radius: 5px;
+  box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.5);
+  display: none;
+
+  &.fade-in {
+    display: block;
+    animation: fade-in 1 0.3s ease;
+  }
+
+  &.fade-out {
+    display: block;
+    animation: fade-out 1 0.3s ease;
+  }
+
+  &-header {
+    @include flex(row, space-between);
+    padding: 0 30px;
+
+    &-title {
+      color: $gray-darken;
+    }
+
+    .close {
+      padding: 10px;
+      font-size: 18px;
+      color: $gray;
+      margin: auto 0;
+
+      &:hover {
+        color: $gray-darken;
+      }
+    }
+  }
+
+  &-products {
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 350px;
+
+    &-product {
+      @include flex(row, space-between);
+      padding: 15px 30px;
+      border-bottom: 1px solid $gray-divider;
+      transition: 0.3s ease;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &:hover {
+        top: -5px;
+        box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+      }
+
+      &-info {
+        &-category {
+          color: $gray;
+          font-size: 16px;
+          margin: 0;
+        }
+
+        &-name {
+          color: $gray-darken;
+          font-size: 18px;
+          margin: 0;
+        }
+
+        &-date {
+          color: $gray;
+          font-size: 16px;
+          margin: 10px 0 0 0;
+        }
+      }
+
+      &-cost {
+        @include flex(column, center);
+
+        &-value {
+          color: $gray-darken;
+          font-size: 20px;
+          margin: 0;
+
+          img {
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; top: $top - 25px; }
+  100% { opacity: 1; top: $top }
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; top: $top; }
+  100% { opacity: 0; top: $top - 25px; }
+}

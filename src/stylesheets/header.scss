@@ -6,8 +6,8 @@
 .header {
   &-info {
     @include flex(row, space-between);
-    height: 48px;
-    padding: 16px 40px;
+    height: $header-info-height;
+    padding: $header-info-padding-top-bottom $header-info-padding-right-left;
 
     &-logo {
       height: 36px;
