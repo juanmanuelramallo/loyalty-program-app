@@ -62,6 +62,7 @@ class App extends Component {
 
   handlePage(page) {
     this.setState({ page });
+    // window.scrollTo(0, document.querySelector('main.container').offsetTop);
   }
 
 
@@ -134,11 +135,11 @@ class App extends Component {
         <Header
           title={ title }
           user={ user }/>
-        <div className="container">
+        <main className="container">
           { this.renderFiltersBar(true) }
           { this.renderProducts() }
           { this.renderFiltersBar(false) }
-        </div>
+        </main>
         <Notify ref='notify'/>
       </div>
     );

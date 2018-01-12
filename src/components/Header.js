@@ -31,7 +31,9 @@ export default class Header extends Component {
           { this.renderUserInfo() }
         </div>
         <div className='header-banner'>
-          <h1 className='header-banner-title'>{ title }</h1>
+          <div className="container">
+            <div className='header-banner-title'>{ title }</div>
+          </div>
         </div>
       </header>
     );
