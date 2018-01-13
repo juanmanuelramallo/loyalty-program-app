@@ -1,4 +1,4 @@
-# Loyalty Program App
+# [Loyalty Program App](http://loyalty-program-app.herokuapp.com/)
 Code challenge from Aerolab
 
 ## Dependencies
@@ -12,6 +12,10 @@ Code challenge from Aerolab
 * For simplicity the .env file has been already loaded
   * It needs to have the key `REACT_APP_API_URL` set to the proper api url
   * And also the `REACT_APP_API_KEY` with the proper api key
+
+## Deployment
+* Heroku is used
+* The URL of the app is: http://loyalty-program-app.herokuapp.com
 
 ----
 
