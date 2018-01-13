@@ -1,6 +1,7 @@
 @import "flex";
 @import "colors";
 @import "variables";
+@import "breakpoints";
 
 $top: $header-info-padding-top-bottom * 2 + $header-info-height - 5px;
 
@@ -15,6 +16,11 @@ $top: $header-info-padding-top-bottom * 2 + $header-info-height - 5px;
   border-radius: 5px;
   box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.5);
   display: none;
+
+  @media only screen and (max-width: $breakpoint-phone) {
+    right: 0;
+    width: 100%;
+  }
 
   &.fade-in {
     display: block;

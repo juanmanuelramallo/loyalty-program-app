@@ -30,7 +30,6 @@
 
       &-points {
         @include flex(row, space-around);
-
         background: $gray-light;
         border-radius: 100px;
         width: 103px;
@@ -68,6 +67,10 @@
 
     @media screen and (min-width: $breakpoint-tablet) {
       background-image: url('../images/header-x2.png');
+    }
+
+    @media only screen and (max-width: $breakpoint-tablet) {
+      background-position: right;
     }
 
     &-title {
