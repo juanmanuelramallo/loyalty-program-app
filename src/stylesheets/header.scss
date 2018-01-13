@@ -40,14 +40,14 @@
         transition: 0.3s ease;
 
         &:hover {
-          box-shadow: 1px 1px 5px $gray;
+          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 
-          img {
+          &-coin {
             transform: rotateY(180deg);
           }
         }
 
-        img {
+        &-coin {
           transition: 0.3s ease;
         }
       }
