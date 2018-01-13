@@ -22,7 +22,7 @@ export default class Header extends Component {
           <p className='header-info-user-name'>{ user.name }</p>
           <div className='header-info-user-points' onMouseOver={ () => this.handleOpenHistory() }>
             <p className='header-info-user-points-value'>{ user.points }</p>
-            <img className='header-info-user-points-coin' src={ coin } alt="Coin"/>
+            <img className='header-info-user-points-coin' src={ coin } alt='Coin'/>
         </div>
         </div>
       );
@@ -41,7 +41,7 @@ export default class Header extends Component {
           { this.renderUserInfo() }
         </div>
         <div className='header-banner'>
-          <div className="container">
+          <div className='container'>
             <div className='header-banner-title'>{ title }</div>
           </div>
         </div>

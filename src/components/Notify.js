@@ -47,7 +47,7 @@ export default class Notify extends Component {
   render() {
     const { messages } = this.state;
     return(
-      <div className="notify">
+      <div className='notify'>
         { messages.map((message, index) => this.renderMessage(message, index)) }
       </div>
     );

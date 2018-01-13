@@ -49,7 +49,7 @@ export default class Product extends Component {
     const pointsNeeded = product.cost - availablePoints;
     if (pointsNeeded > 0) {
       return(
-        <div className="product-points-needed">You need { pointsNeeded } <img src={ coin } alt="Coin"/></div>
+        <div className='product-points-needed'>You need { pointsNeeded } <img src={ coin } alt='Coin'/></div>
       );
     } else {
       let buyIcon = buyBlue;
@@ -57,7 +57,7 @@ export default class Product extends Component {
         buyIcon = buyWhite;
       }
       return(
-        <div className="product-buy"><img src={ buyIcon } alt="Shop"/></div>
+        <div className='product-buy'><img src={ buyIcon } alt='Shop'/></div>
       );
     }
   }
@@ -69,11 +69,11 @@ export default class Product extends Component {
       const { isLoading } = this.state;
       const redeemButtonText = `${ isLoading ? 'Redeeming...' : 'Redeem now' }`;
       return(
-        <div className="product-overlay">
-          <div className="product-overlay-background"></div>
+        <div className='product-overlay'>
+          <div className='product-overlay-background'></div>
           { this.renderShopIcon('white') }
-          <div className="product-overlay-info">
-            <p className="product-overlay-info-points">{ product.cost } <img src={ coin } alt="Coin"/></p>
+          <div className='product-overlay-info'>
+            <p className='product-overlay-info-points'>{ product.cost } <img src={ coin } alt='Coin'/></p>
             <button type='button' className='btn btn-white' onClick={ () => this.handleRedeemButton() }>{ redeemButtonText }</button>
           </div>
         </div>
@@ -88,12 +88,12 @@ export default class Product extends Component {
     const { product } = this.props;
     const { loadingImage } = this.state;
     return(
-      <div className="product">
+      <div className='product'>
         { this.renderShopIcon() }
         <div className={ `product-photo ${ loadingImage ? 'product-photo--loading' : '' }` }><img src={ product.img.url } onLoad={ () => this.handleLoadedImage() } alt={ `${product.category}` } /></div>
-        <div className="product-info">
-          <p className="product-info-category">{ product.category }</p>
-          <p className="product-info-name">{ product.name }</p>
+        <div className='product-info'>
+          <p className='product-info-category'>{ product.category }</p>
+          <p className='product-info-name'>{ product.name }</p>
         </div>
         { this.renderProductOverlay() }
       </div>

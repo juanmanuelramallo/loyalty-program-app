@@ -27,7 +27,7 @@ export default class NotifyMessage extends Component {
     const { active } = this.state;
     const classNames = `notify-message notify-message-${type} ${active ? '' : 'notify-message-hide'}`;
     return(
-      <div className={ classNames }>{ text } <span className="btn-icon notify-message-close" onClick={ () => this.close() }>&#215;</span></div>
+      <div className={ classNames }>{ text } <span className='btn-icon notify-message-close' onClick={ () => this.close() }>&#215;</span></div>
     );
   }
 }

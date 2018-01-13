@@ -28,11 +28,11 @@ export default class Filters extends Component {
     const canGoRight = (page * productsPerPage) < totalProducts;
     const canGoLeft = page > 1;
     return(
-      <div className="pagination-buttons">
+      <div className='pagination-buttons'>
         { canGoLeft &&
-            <button onClick={ () => this.handlePage('left') } className='btn-icon'><img src={ arrowLeft } alt="Left"/></button> }
+            <button onClick={ () => this.handlePage('left') } className='btn-icon'><img src={ arrowLeft } alt='Left'/></button> }
         { canGoRight &&
-          <button onClick={ () => this.handlePage('right') } className='btn-icon'><img src={ arrowRight } alt="Right"/></button> }
+          <button onClick={ () => this.handlePage('right') } className='btn-icon'><img src={ arrowRight } alt='Right'/></button> }
       </div>
     );
   }
@@ -55,9 +55,9 @@ export default class Filters extends Component {
     const { withFilters, totalProducts } = this.props;
     if (withFilters && totalProducts > 0) {
       return(
-        <div className="filter-buttons">
-          <span className="filter-buttons-divider"></span>
-          <span className="filter-buttons-sort-by">Sort by:</span>
+        <div className='filter-buttons'>
+          <span className='filter-buttons-divider'></span>
+          <span className='filter-buttons-sort-by'>Sort by:</span>
           { this.renderFilter('mostRecent', 'Most recent') }
           { this.renderFilter('lowestPrice', 'Lowest price') }
           { this.renderFilter('highestPrice', 'Highest price') }
@@ -71,12 +71,12 @@ export default class Filters extends Component {
 
   render() {
     return(
-      <div className="filters">
-        <div className="filters-left">
-          <span className="filters-products">{ this.renderNumbering() }</span>
+      <div className='filters'>
+        <div className='filters-left'>
+          <span className='filters-products'>{ this.renderNumbering() }</span>
           { this.renderFilterButtons() }
         </div>
-        <div className="filters-right">
+        <div className='filters-right'>
           { this.renderPaginationButtons() }
         </div>
       </div>

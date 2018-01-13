@@ -144,7 +144,7 @@ class App extends Component {
           updateHistory={ (p) => this.refs.history.addProductToHistory(p) }/>
       );
     } else if (productsLoading) {
-      return(<div className="loading"></div>);
+      return(<div className='loading'></div>);
     } else {
       return null;
     }
@@ -154,13 +154,13 @@ class App extends Component {
   render() {
     const { title, user } = this.state;
     return (
-      <div className="App">
+      <div className='App'>
         <Header
           title={ title }
           user={ user }
           showHistory={ () => this.showHistory() } />
         <History ref='history'/>
-        <main className="container">
+        <main className='container'>
           { this.renderFiltersBar(true) }
           { this.renderProducts() }
           { this.renderFiltersBar(false) }

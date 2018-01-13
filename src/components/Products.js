@@ -50,7 +50,7 @@ export default class Products extends Component {
   render() {
     const { currentProducts } = this.state;
     return(
-      <div className="products">
+      <div className='products'>
         { currentProducts.map(product => this.renderProduct(product))}
       </div>
     );

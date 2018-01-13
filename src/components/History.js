@@ -84,13 +84,13 @@ export default class History extends Component {
   renderProduct(product, index) {
     return(
       <li key={ `product-history-${index}` } className='history-products-product'>
-        <div className="history-products-product-info">
-          <p className="history-products-product-info-category">{ product.category }</p>
-          <p className="history-products-product-info-name">{ product.name }</p>
-          <p className="history-products-product-info-date">{ moment(product.createDate).format('LLL') }</p>
+        <div className='history-products-product-info'>
+          <p className='history-products-product-info-category'>{ product.category }</p>
+          <p className='history-products-product-info-name'>{ product.name }</p>
+          <p className='history-products-product-info-date'>{ moment(product.createDate).format('LLL') }</p>
         </div>
-        <div className="history-products-product-cost">
-          <p className='history-products-product-cost-value'>- { product.cost } <img className='history-products-product-cost-coin' src={ coin } alt="Coin"/></p>
+        <div className='history-products-product-cost'>
+          <p className='history-products-product-cost-value'>- { product.cost } <img className='history-products-product-cost-coin' src={ coin } alt='Coin'/></p>
         </div>
       </li>
     );
@@ -101,17 +101,17 @@ export default class History extends Component {
     const { products, isLoading } = this.state;
     if (isLoading) {
       return(
-        <div className="loading"></div>
+        <div className='loading'></div>
       );
     } else if (products.length > 0) {
       return(
-        <ol className="history-products">
+        <ol className='history-products'>
           { products.map((product, index) => this.renderProduct(product, index)) }
         </ol>
       );
     } else {
       return(
-        <div className="history-empty">
+        <div className='history-empty'>
           There are no products redeemed
         </div>
       );
@@ -123,9 +123,9 @@ export default class History extends Component {
     const { show } = this.state;
     return(
       <div className={ `history ${ show ? 'fade-in' : 'fade-out' }` } id='history'>
-        <div className="history-header">
+        <div className='history-header'>
           <h1 className='history-header-title'>History</h1>
-          <button className="btn-icon" onClick={ () => this.hide() }><span className="close">✕</span></button>
+          <button className='btn-icon' onClick={ () => this.hide() }><span className='close'>✕</span></button>
         </div>
         { this.renderProducts() }
       </div>
